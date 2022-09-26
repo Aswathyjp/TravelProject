@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+        <style>
+    .container{
+               text-align:left;
+               padding:20px;
+               color:#4682b4;
+              text-align:Left;
+              font-family:timesnewroman;
+               font-size:120%;
+
+               }
+        .logbtn{
+                  background-color:white;
+                  color:#4682b4;
+                  padding:10px 10px;
+                  margin:10px;
+                  border:1px solid navyblue;
+                  cursor:pointer;
+                  width:10%;
+
+                }
+    </style>
+</head>
+<body>
+<div >
+    <img  src="{% static 'images/login1.jpg' %}" alt="our products" height="200px" width="1500px">
+</div>
+
+<h1 style="color:#4682b4">
+    login
+</h1>
+<form action="login" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <b>  Username</b><input type="text" name="username" placeholder="Enter your username" > <br>
+        <b>Password</b> <input type="password" name="password" placeholder="Enter your password" > <br>
+           <button type="submit" class="logbtn">
+               <b> login</b>
+                </button>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+
+    </div>
+
+</form>
+
+
+</body>
+</html>

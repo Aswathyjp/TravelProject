@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <style>
+    .container{
+               padding:20px;
+               color:#191970 ;
+              text-align:Left;
+              font-family:timesnewroman;
+               font-size:120%;
+
+               }
+        .regbtn{
+                   background-color:white;
+                  color:#191970 ;
+                  padding:16px 20px;
+                  margin:8px;
+                  border:1px solid navyblue;
+                  cursor:pointer;
+                  width:15%;
+                  font-size:100%;
+                }
+    </style>
+</head>
+<body>
+<div >
+    <img  src="{% static 'images/register.jpg' %}" alt="our products" height="200px" width="1500px">
+</div>
+<h1 style="color:#191970 ;">Register Here</h1>
+<form  action='registration' method="Post">
+    <div class="container">
+    {% csrf_token %}
+   <b> Username</b><input type="text" name="username" placeholder="Enter your username" > <br> <br>
+     <b> Firstname</b><input type="text" name="first_name" placeholder="Enter your firstname" > <br> <br>
+     <b> LastName</b> <input type="text" name="last_name" placeholder="Enter your lastname" > <br><br>
+     <b> Email</b> <input type="email" name="email" placeholder="Enter your email" > <br> <br>
+      <b> Password</b><input type="password" name="password" placeholder="Enter your password" > <br><br>
+     <b> Confirmpassword</b><input type="password" name="password1" placeholder="Confirm your password" > <br> <br>
+    <button  type='submit' class="regbtn">  <b> Register  </b> </button>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+</div>
+</form>
+
+</body>
+</html>
